@@ -20,6 +20,11 @@ Delete this placeholder text, and replace it with your introduction text. You sh
 Describe where the data came from, including how they were collected in the field (information is in the pdf file in the data folder), some information about those sites and why you chose them, and how you are analyzing them (e.g. using R to visualize the results and the statistical tests you will use).
 
 # Results
+```{r load-packages}
+library("dplyr")
+library("ggplot2")
+```
+
 Read in the small mammal data set:
 ```{r load-in-data}
 # read in the small mammal data from raw data directory
@@ -27,7 +32,23 @@ library(readr)
 mam_pertrapnight <- read_csv("data/raw_data/mam_pertrapnight.csv")
 ```
 
+Data set showing the weight of an mammal at NEON sites:
+```{r subset-out-weight-data}
+# just look at the weight of the mammal
+weight_data <- subset(mam_pertrapnight,
+                        functionalGroup == "weight")
+```
 
+Box plot of the weight of small mammals at NEON sites:
+```{r boxplot-of-functional-types}
+# weight of small mammals at diffrent sites in the NEON data
+boxplot(weight ~ siteID,
+        data = mam_pertrapnight,
+       main = "Weight of Small Mammals at NEON sites",
+        xlab = "site ID",
+        ylab = "weight (grams)",
+       las = 2)
+```
 
 Add a number of code chunks in the Results section. These should read in, subset and plot the data as needed (no need to save any figures to pdf, since they will be put into the rendered document when you click 'knit'), and, for any hypotheses that you want to test, an appropriate statistical test. You should have at least 5 figures and/or tables in this section, which you use to test your hypotheses against the dataset.
 
