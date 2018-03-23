@@ -48,13 +48,16 @@ ggplot(mam_pertrapnight, aes(x = siteID,
 
 Scatter plot for the weight of small  mammals at "CLBJ" NEON site:
 ```{r scatterplot-for-CLBJ-site}
-# make a scatterplot for the weight of small mammals at "CBJL" NEON site
-plot(x = as.POSIXct(mam_pertrapnight$collectDate),
-    y = weight_data$dryMass,
-    main = "Weight of Small Mammals at LBJ National Grassland",
-    xlab = "Date",
-    ylab = "Weight in grams",
-    pch = 16)
+# make a boxplot for the weight of small mammals at "CLBJ" NEON site
+mam_pertrapnight %>%
+  filter(siteID == "CLBJ") %>%
+  filter(!is.na(scientificName)) %>%
+  ggplot(aes(x = scientificName,
+             y = weight)) +
+  geom_boxplot() +
+  ggtitle("Weight of Small Mammal Species at CLBJ NEON site") +
+  xlab("Species") +
+  ylab("Weight (grams)")
 ```
 
 Scatter plot for the weight of small  mammals at "SERC" NEON site:
