@@ -60,15 +60,19 @@ mam_pertrapnight %>%
   ylab("Weight (grams)")
 ```
 
+
 Scatter plot for the weight of small  mammals at "SERC" NEON site:
 ```{r scatterplot-for-SERC-site}
 # make a scatterplot for the weight of small mammals at "SERC" NEON site
-plot(x = as.POSIXct(mam_pertrapnight$collectDate),
-    y = weight_data$dryMass,
-    main = "Weight of Small Mammals at Smithsonian Environmental Research Center",
-    xlab = "Date",
-    ylab = "Weight in grams",
-    pch = 16)
+mam_pertrapnight %>%
+  filter(siteID == "SERC") %>%
+  filter(!is.na(scientificName)) %>%
+  ggplot(aes(x = scientificName,
+             y = weight)) +
+  geom_boxplot() +
+  ggtitle("Weight of Small Mammal Species at SERC NEON site") +
+  xlab("Species") +
+  ylab("Weight (grams)")
 ```
 
 ```{r summary-table-of-weight}
