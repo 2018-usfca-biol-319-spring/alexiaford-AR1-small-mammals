@@ -75,23 +75,27 @@ mam_pertrapnight %>%
   ylab("Weight (grams)")
 ```
 
-```{r summary-table-of-weight}
-# I want to make a summary table of average weight and standard deviation
-# of all trapped rodents grouped by site, and excluding NA values
-mam_pertrapnight %>%
-  filter(trapStatus == "3 - trap door open or closed w/ spoor left") %>%  
-  group_by(siteID) %>%
-  summarise(mean_weight = mean(weight, na.rm = TRUE),
-            sd_weight = sd(weight, na.rm = TRUE)) %>%
-  filter(siteID %in% c("SERC", "CLBJ")) %>% 
-  ggplot(aes(x = siteID, y = mean_weight)) +
-  geom_errorbar(aes(x = siteID,
-                    ymin = mean_weight - sd_weight,
-                    ymax = mean_weight + sd_weight),
-                width = 0.2) +
-  geom_col(fill = "dodger blue") +
-  ggtitle("Average Weight in Grams of Small Mammals at SERC and CLBJ NEON sites")
 
+```{r boxplot-of-neotoma-weight-all-sites}
+mam_pertrapnight %>%
+  filter(scientificName == "Neotoma micropus") %>%
+  ggplot(aes(x = siteID,
+             y = weight)) +
+  geom_boxplot() +
+  ggtitle("Weight of Neotoma micropus Species at all NEON Sites") +
+  xlab("Site") +
+  ylab("Weight (grams)")
+```
+
+```{r boxplot-of-mus-weight-all-sites}
+mam_pertrapnight %>%
+  filter(scientificName == "Mus musculus") %>%
+  ggplot(aes(x = siteID,
+             y = weight)) +
+  geom_boxplot() +
+  ggtitle("Weight of Mus musculus Species at all NEON Sites") +
+  xlab("Site") +
+  ylab("Weight (grams)")
 ```
 
 Add a number of code chunks in the Results section. These should read in, subset and plot the data as needed (no need to save any figures to pdf, since they will be put into the rendered document when you click 'knit'), and, for any hypotheses that you want to test, an appropriate statistical test. You should have at least 5 figures and/or tables in this section, which you use to test your hypotheses against the dataset.
