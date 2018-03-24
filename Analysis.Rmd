@@ -30,9 +30,9 @@ The data for this report is collected by the National Ecological Observatory Net
 
 The trap type NEON uses consists of box traps which are live traps that include: Sherman traps, Longworth traps, and Elliott traps that are placed on the ground or in trees and baited. NEON uses H.B. Sherman folding traps in order to facilitate movement of traps among sites. The bait type NEON uses for capture is a seed mixture of millet and sunflower seeds, as it is easy to transport, and less attractive of unwanted visitors than the typical bait, peanut butter. NEON's marking method is ear tagging. The ear tagging is conspicuous and is placed at the base of the ear. Ear tagging can be used to conduct behavioral studies as well as record the small mammals ear length when tagging. Lastly, NEON's trap array employs 10 X 10 trapping grids, with 10m spacing and 1 trap per station. This design appropriately yields for a sampling area of about 1ha. 
 
-INFORMATION ABOUT THE SITES? HOW ARE U ANALYZING THEM? 
+INFORMATION ABOUT THE SITES? HOW ARE U ANALYZING THEM? some information about those sites and why you chose them, and how you are analyzing them
 
-Using the data collected and provided by NEON 
+Using this small mammal data collected and provided by NEON this report will use R studio to visualize results and test how the distrubition of weight varies across NEON sites. 
 
 This report will specifically be analyzing the weight of small mammals across all NEON sites, to then take a closer look at the site with the highest average weight and the site with the lowest average weight. The LBJ National Grassland ("CLBJ" site) located in Texas is the site with the highest average weight among small mammals. The Smithsonian Environmental Research Center ("SERC" site) located in Maryland is opposingly the site with the lowest average weight among small mammals. 
 
