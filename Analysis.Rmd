@@ -73,7 +73,7 @@ mam_pertrapnight %>%
   ylab("Weight (grams)")
 ```
 
-Boxplot for the weight of small  mammals at "SERC" NEON site:
+Boxplot for the weight of small mammals at "SERC" NEON site:
 ```{r boxplot-for-SERC-site}
 # make a boxplot for the weight of small mammals at "SERC" NEON site
 mam_pertrapnight %>%
@@ -87,6 +87,7 @@ mam_pertrapnight %>%
   ylab("Weight (grams)")
 ```
 
+Boxplot for the weight of *Neotoma micropus* at all NEON sites:
 ```{r boxplot-of-neotoma-weight-all-sites}
 mam_pertrapnight %>%
   filter(scientificName == "Neotoma micropus") %>%
@@ -98,6 +99,7 @@ mam_pertrapnight %>%
   ylab("Weight (grams)")
 ```
 
+Boxplot for the weight of *Mus musculus* at all NEON sites:
 ```{r boxplot-of-mus-weight-all-sites}
 mam_pertrapnight %>%
   filter(scientificName == "Mus musculus") %>%
