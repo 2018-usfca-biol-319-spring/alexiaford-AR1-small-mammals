@@ -12,6 +12,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Introduction
+This report is testing how the distrubition of weight varies across NEON sites using the National Ecological Observatory Network (NEON) data. This report will explain NEON's work/purpose, NEON's design, introduce the data, test a hypothesis, and analyze the information presented. The National Ecological Observatory Network (NEON) is an ecological observation platform for discovering, understanding, and forecasting the impacts of climate change, land use change, and invasive species on continental-scale ecology with sites distributed within 20 ecoclimatic domains accross United States, Alaska, Hawaii, and Puerto Rico using remote sensing [@kampe2010neon]. NEON has allowed for easy accessible data to the public by providing the data the observatory has collected to scientists, land managers, policy makers, educators, and members of the general public interested in addressing these major ecological challenges. The data produced by NEON are strategically aimed at addressing ecological questions. Questions that are analyzing complex ecological proccesses and relationships that govern large scale patterns consistent with the measuring the drivers of change, biogeochemical cycling, and population and community responses across a variety of ecosystems in ultimate hopes of expanding our understanding of ecological processes and to improve our ability to forecast these ecological changes [@thorpe2016introduction].
+
+The project is responsible for measuring the causes and effects of environmental change across the United States within 20 eco-climate domains that all represent different landforms, vegetation, climate, and ecosystem dynamics collectively represcenting a range of U.S. climate variability. The project is constantly collecting data from it’s observatory’s regional domain to provide data and statistically represent ecological, physical, and biological variability across the US. NEON has four different sites that the project collects data from these sites include: core terrestrial sites, core aquatic sites, relocatable terrestrial sites, and lastly relocatable aquatic sites. The sites are collected from using five measurement subsystems of the Observatory including: the Airborne Observation Platform (AOP), Aquatic Instrument System (AIS), Aquatic Observation System (AOS), Terrestrial Instrument System (TIS), and Terrestrial Observation System (TOS) [@thorpe2016introduction]. These five systems of measurement have been used to collect endless data and NEON has continued to do so by properly standardizing the proper protocols across all sites and maintain community best practices. 
+
+the two sites
 
 Delete this placeholder text, and replace it with your introduction text. You should include background on the NEON project including proper citations (e.g. [@thorpe2016introduction]), the sets of sites you are comparing, and other relevent background information related to your specific hypotheses. 
 
@@ -32,22 +37,19 @@ Read in the small mammal data set:
 mam_pertrapnight <- read_csv("data/raw_data/mam_pertrapnight.csv")
 ```
 
-Data set showing the weight of small mammals at NEON sites:
-
-
-Box plot for the weight of small mammals at NEON sites:
+Box plot for the weight of small mammals at all NEON sites:
 ```{r boxplot-of-small-mammal-weight}
 # weight of small mammals at diffrent sites in the NEON data
 ggplot(mam_pertrapnight, aes(x = siteID,
                              y = weight)) +
   geom_boxplot() +
-  ggtitle("Weight of Small Mammals at NEON sites") +
-  xlab("site ID") +
-  ylab("weight (grams)")
+  ggtitle("Weight of Small Mammals at all NEON sites") +
+  xlab("Site ID") +
+  ylab("Weight (grams)")
 ```
 
-Scatter plot for the weight of small  mammals at "CLBJ" NEON site:
-```{r scatterplot-for-CLBJ-site}
+Box plot for the weight of small  mammals at "CLBJ" NEON site:
+```{r boxplot-for-CLBJ-site}
 # make a boxplot for the weight of small mammals at "CLBJ" NEON site
 mam_pertrapnight %>%
   filter(siteID == "CLBJ") %>%
@@ -61,9 +63,9 @@ mam_pertrapnight %>%
 ```
 
 
-Scatter plot for the weight of small  mammals at "SERC" NEON site:
-```{r scatterplot-for-SERC-site}
-# make a scatterplot for the weight of small mammals at "SERC" NEON site
+Boxplot for the weight of small  mammals at "SERC" NEON site:
+```{r boxplot-for-SERC-site}
+# make a boxplot for the weight of small mammals at "SERC" NEON site
 mam_pertrapnight %>%
   filter(siteID == "SERC") %>%
   filter(!is.na(scientificName)) %>%
